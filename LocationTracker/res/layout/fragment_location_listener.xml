@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Layout file for LocationListener 
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#d9ccff" >
+
+    <!-- Title "My Location" text view -->
+    <TextView
+        android:id="@+id/my_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_location"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="10dp" />
+    
+    <!-- Location box -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp" >
+
+	        <!-- Latitude box -->
+	        <LinearLayout
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginBottom="5dp" >
+	
+	            <TextView
+	                android:id="@+id/latitude"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/latitude"
+	                android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	            <TextView
+	                android:id="@+id/latitude_value"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            
+			</LinearLayout>
+	        
+	        <!-- Longitude box -->
+	        <LinearLayout
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="5dp" >
+	
+	        	<TextView
+	                android:id="@+id/longitude"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/longitude"
+	                android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	            <TextView
+	                android:id="@+id/longitude_value"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	        
+			</LinearLayout>
+	
+	</LinearLayout>
+	
+    <!-- On button click, call sendSMS function -->
+    <Button
+        android:id="@+id/send_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_sms_btn"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="0dp" />
+        
+</LinearLayout>

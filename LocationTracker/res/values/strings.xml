@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Location Tracker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings to hold the title "My Location" and latitude, longitude -->
+    <string name="my_location">My Location</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="send_sms_btn">Send via SMS </string>
+    <string name="bc_location_btn">Broadcast Location </string>
+    <string name="title_activity_send_location_sms">Send Location via SMS</string>
+
+    <!-- Strings to hold the phone no hint, phone no and location labels and send button -->
+    <string name="phone_no_hint">Enter Phone Number </string>
+    <string name="phone_no_label">Phone Number: </string>
+    <string name="location_label">Text to send: </string>
+    <string name="send_btn">Send</string>
+    <string name="title_activity_send_bclocation_sms">SendBCLocationSMSActivity</string>
+
+</resources>
