@@ -20,4 +20,10 @@
     <string name="send_btn">Send</string>
     <string name="title_activity_send_bclocation_sms">SendBCLocationSMSActivity</string>
 
+    <!-- String to hold the button text -->
+    <string name="map_view_btn">View on Map</string>
+    <string name="title_activity_map_view">MapViewActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>

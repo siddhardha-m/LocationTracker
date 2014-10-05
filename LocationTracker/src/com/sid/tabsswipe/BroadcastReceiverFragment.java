@@ -1,5 +1,6 @@
 package com.sid.tabsswipe;
 
+import com.sid.locationtracker.MapViewActivity;
 import com.sid.locationtracker.R;
 import com.sid.locationtracker.SendLocationSMSActivity;
 
@@ -36,9 +37,10 @@ public class BroadcastReceiverFragment extends Fragment implements LocationListe
     String latitude_location;
     String longitude_location;
     
-    //To reference the Send via SMS and Broadcast Location buttons
+    //To reference the Send via SMS, Broadcast Location and View on Map buttons
     Button sendBtn;
     Button bcLocationBtn;
+    Button viewMapBtn;
     
 	//To store the latitude and longitude values Text views
     TextView tvLatitude;
@@ -111,6 +113,12 @@ public class BroadcastReceiverFragment extends Fragment implements LocationListe
         //OnClickListener is enrolled
         sendBtn.setOnClickListener(this);
         bcLocationBtn.setOnClickListener(this);
+        
+        //Reference to View on Map button
+        viewMapBtn = (Button) rootView.findViewById(R.id.map_view_btn);
+        
+        //OnClickListener is enrolled
+        viewMapBtn.setOnClickListener(this);
         
         return rootView;
     }
@@ -207,7 +215,26 @@ public class BroadcastReceiverFragment extends Fragment implements LocationListe
 		//If Send via SMS button is clicked
 		if (v.getId() == sendBtn.getId())
 		{
-		//Creating a new intent for Send BC location SMS Activity
+			sendSMS(v);
+		}
+		
+		//If Broadcast Location button is clicked
+		else if (v.getId() == bcLocationBtn.getId())
+		{
+			//Broadcast the location
+			broadcastCustomLocationIntent();
+		}
+		
+		//If View on Map button is clicked
+		else if (v.getId() == viewMapBtn.getId())
+		{
+			viewMap(v);
+		}
+	}
+	
+	//Called on clicking the 'Send via SMS' button
+	public void sendSMS(View v) {
+		//Creating a new intent for Send location SMS Activity
 		Intent location_intent = new Intent(getActivity(), SendLocationSMSActivity.class);
 		
 		//For sending multiple extras as bundle
@@ -220,15 +247,27 @@ public class BroadcastReceiverFragment extends Fragment implements LocationListe
 		//Putting the extras in the intent
 		location_intent.putExtras(extras);
 		
-		//Starting the activity SendBCLocationSMSActivity
+		//Starting the activity SendLocationSMSActivity
 		startActivity(location_intent);
-		}
-		
-		//If Broadcast Location button is clicked
-		else if (v.getId() == bcLocationBtn.getId())
-		{
-			//Broadcast the location
-			broadcastCustomLocationIntent();
-		}
 	}
+	
+	//Called on clicking the 'View on Map' button
+	public void viewMap(View v) {
+		//Creating a new intent for Map View Activity
+		Intent map_view_intent = new Intent(getActivity(), MapViewActivity.class);
+		
+		//For sending multiple extras as bundle
+		Bundle extras = new Bundle();
+		
+		//Populating extras string with latitude and longitude values
+		extras.putString("LATITUDE_MESSAGE",latitude_val);
+		extras.putString("LONGITUDE_MESSAGE",longitude_val);
+		
+		//Putting the extras in the intent
+		map_view_intent.putExtras(extras);
+		
+		//Starting the activity MapViewActivity
+		startActivity(map_view_intent);
+	}
+
 }

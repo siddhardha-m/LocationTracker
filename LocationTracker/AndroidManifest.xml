@@ -37,14 +37,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sid.locationtracker.MainActivity" />
         </activity>
-
-        //Registering BroadcastReceiver to broadcast location        <receiver android:name=".MyBroadcastReceiver" >
+        //Registering BroadcastReceiver to broadcast location        
+        <receiver android:name=".MyBroadcastReceiver" >
             <intent-filter>
                 <action android:name="com.sid.locationtracker.Broadcast" >
                 </action>
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".MapViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_map_view"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/FullscreenTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sid.locationtracker.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
