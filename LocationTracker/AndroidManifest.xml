@@ -8,9 +8,32 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
-    <!-- Setting permissions to access GPS data and internet access -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Setting permission to receive Google Maps -->
+    <permission
+        android:name="com.sid.locationtracker.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.sid.locationtracker.permission.MAPS_RECEIVE" />
+
+    <!-- Setting permissions needed for Google Maps -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Adding feature OpenGL ES version 2 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <!-- Setting permissions to access GPS data and internet access -->
+    <!--
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    -->
+
 
     <!-- Setting permissions to send -->
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -20,6 +43,21 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- Use Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDPMOJLQ7bDXbVcq0ILQ3tddVQ84ky2388" />
+        <!-- Use Google Map services -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- To run on Android emulator -->
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="false" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -37,7 +75,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sid.locationtracker.MainActivity" />
         </activity>
-        //Registering BroadcastReceiver to broadcast location        
+        //Registering BroadcastReceiver to broadcast location        
         <receiver android:name=".MyBroadcastReceiver" >
             <intent-filter>
                 <action android:name="com.sid.locationtracker.Broadcast" >
@@ -51,6 +89,14 @@
             android:label="@string/title_activity_map_view"
             android:parentActivityName=".MainActivity"
             android:theme="@style/FullscreenTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sid.locationtracker.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sid.locationtracker.MainActivity" />

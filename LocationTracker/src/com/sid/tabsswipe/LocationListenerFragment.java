@@ -1,6 +1,6 @@
 package com.sid.tabsswipe;
 
-import com.sid.locationtracker.MapViewActivity;
+import com.sid.locationtracker.MapActivity;
 import com.sid.locationtracker.R;
 import com.sid.locationtracker.SendLocationSMSActivity;
 
@@ -215,8 +215,8 @@ public class LocationListenerFragment extends Fragment implements LocationListen
 	
 	//Called on clicking the 'View on Map' button
 	public void viewMap(View v) {
-		//Creating a new intent for Map View Activity
-		Intent map_view_intent = new Intent(getActivity(), MapViewActivity.class);
+		//Creating a new intent for MapActivity
+		Intent map_view_intent = new Intent(getActivity(), MapActivity.class);
 		
 		//For sending multiple extras as bundle
 		Bundle extras = new Bundle();
@@ -228,7 +228,7 @@ public class LocationListenerFragment extends Fragment implements LocationListen
 		//Putting the extras in the intent
 		map_view_intent.putExtras(extras);
 		
-		//Starting the activity MapViewActivity
+		//Starting the activity MapActivity
 		startActivity(map_view_intent);
 	}
 
